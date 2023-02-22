@@ -1,0 +1,1 @@
+{"version":3,"sources":["main.js"],"names":["main","console","log","$","document","ready"],"mappings":"AAAA,SAASA,IAAT,GAAe;AACXC,YAAQC,GAAR,CAAY,eAAZ;AACH;AACDC,EAAEC,QAAF,EAAYC,KAAZ,CAAkBL,IAAlB","file":"main.js","sourcesContent":["function main(){\r\n    console.log('Engine Loaded');\r\n}\r\n$(document).ready(main);"]}
