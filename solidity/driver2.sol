@@ -25,6 +25,10 @@ contract driver {
     address ref_3;
     address ref_4;
 
+    // amount member has deposited and is eligible for
+    uint amount_eligible;
+    // amount member has received
+    uint amount_received;
   }
 
   //maps address to the member structure
@@ -72,7 +76,7 @@ contract driver {
   function init_members(uint _aadhaar) public {
     usr_aadhar[_aadhaar]=msg.sender;
     if(init_member_counter <5){
-      link[msg.sender]=member(now,4,msg.sender,_aadhaar,0x1,0x2,0x3,0x4);
+      link[msg.sender]=member(now,4,msg.sender,_aadhaar,0x1,0x2,0x3,0x4,0,0);
       init_member_counter++;
     }
     else{
@@ -89,7 +93,7 @@ contract driver {
     if(count==1)
     {usr_aadhar[__aadhaar]=_req_member;
       var1=msg.sender;
-      link[_req_member]=member(now,count,_req_member,__aadhaar,var1,0,0,0);
+      link[_req_member]=member(now,count,_req_member,__aadhaar,var1,0,0,0,0,0);
     }
     else if (count==2)
     {
@@ -118,24 +122,31 @@ contract driver {
 
   }
 
+  uint[] public pool_money;
+  uint[] public amounts;
+//requested money mapped to member address
+  mapping (uint => address) amount_map;
+
   //shows the money in the pool
   function getPoolMoney() public constant returns (uint256){
-
-    return address(this).balance;
-
+    // add the money the all members have deposited in the pool - the money they have received
+    uint256 total = 0;
+    for (uint i = 0; i < pool_money.length; i++) {
+      total += pool_money[i];
+    }
+    for (uint j = 0; j < amounts.length; j++) {
+      total -= amounts[j];
+    }
+    return total;
   }
 
   //deposit money in the pool
   function pool(uint256 __amount) public payable {
-
-    address(this).transfer(__amount);
+    link[msg.sender].amount_eligible+=__amount;
+    pool_money.push(__amount);
     emit SomeoneAddedMoneyToThePool(msg.sender,__amount);
-
   }
 
-  uint[] public amounts;
-//requested money mapped to member address
-  mapping (uint => address) amount_map;
 
   modifier onlyafter6()
   {
@@ -172,10 +183,9 @@ contract driver {
   }
 //To request money from the pool
   function req_Money(uint _amount_) public onlymember {
-
     amounts.push(_amount_);
-    amount_map[_amount_] = msg.sender;
-
+    amount_map[_amount_]=msg.sender;
+    link[msg.sender].amount_received+=_amount_;
    emit SomeoneRequestedForMoney(msg.sender,_amount_);
   }
 
@@ -271,5 +281,4 @@ function assign_loan_amount_from_pool() public view returns (uint) {
 
   function () public payable{
   }
-
 }
