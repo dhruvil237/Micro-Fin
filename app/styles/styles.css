@@ -1,0 +1,210 @@
+/* Reset default margin and padding for all elements */
+body,
+h1,
+form,
+input,
+button {
+  margin: 0;
+  padding: 0;
+  color: #f5f7fa;
+  font-size: 1.25rem;
+  font-family: 'Poppins', sans-serif;
+  
+  
+}
+
+/* Set font size and line height for body text */
+body {
+  font-size: 16px;
+  line-height: 1.6;
+  background-color: #efedff;
+}
+
+.parent-container {
+  margin: 2px;
+  padding: 0 auto;
+}
+/* Add margin and padding to the main heading */
+.main-heading {
+  width: 99%;
+  text-align: center;
+  margin: 0 auto;
+  margin-bottom: 0;
+  padding: 0 auto;
+  font-size: 3rem;
+  /* background-color: aqua; */
+  color: #273347;
+}
+.main-subheading {
+  width: 99%;
+  text-align: center;
+  margin: 0 auto;
+  padding: 0 auto;
+  font-size: 1.5rem;
+  /* background-color: aqua; */
+  color: #273347;
+  margin-top: 0 !important;
+
+}
+
+button {
+  border: 2px solid black;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.btn-connected {
+  margin: 15px auto 15px auto;
+  background-color: green;
+  color: white;
+  width: 150px;
+}
+
+.heading-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.heading-container hr {
+  margin-top: 0;
+  border: 1px solid black;
+  width: 97%;
+}
+
+/* Style the Button Container */
+.btnContainer {
+  display: flex;
+  flex-direction: row;
+  margin: auto;
+  margin-top: 25px;
+  justify-content: space-around;
+  width: 70%;
+}
+
+/* Style the buttons */
+.btn {
+  display: block;
+  margin: 10px;
+  padding: 10px;
+  background-color: #fb886e;
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 3.5;
+
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+/* Style the form container */
+.form-container {
+  margin: 20px;
+  padding: 10px;
+}
+
+/* Hide all forms by default */
+.form {
+  display: none;
+  max-width: 30%;
+  margin: 0 auto;
+  padding: 25px;
+  border-radius: 10px;
+  background-color: #00A99D;
+  color: #EFEFEF;
+  text-align: center;
+}
+
+.form h2 {
+  margin-top: 0;
+  margin-bottom: 0;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: rgb(32, 18, 72);
+}
+
+
+
+.form hr {
+  margin-bottom: 5px;
+}
+/* Style the form inputs and buttons */
+
+input {
+  border-radius: 5px;
+  font-size: large;
+  padding: 5px !important;
+}
+
+.form input {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+.form input,
+.form button {
+  display: block;
+  margin: 10px auto;
+  text-align: center;
+  padding: 4px;
+}
+
+.form input,
+.form button,
+.form h2 {
+  padding: 2.5px;
+}
+.form button {
+  margin: 10px auto 2px;
+  padding: 6px;
+  background-color: #B8E1E0;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  border: none;
+  min-width: 4rem;
+  font-weight: 600;
+  color: rgb(32, 18, 72);
+}
+/* Show the selected form based on button click */
+.form.show {
+  display: block;
+}
+
+label {
+  font-size: larger;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+/* Media queries for responsive design */
+@media screen and (max-width: 768px) {
+  body,
+  h1,
+  h3,
+  form,
+  input,
+  button {
+    margin: 0;
+    padding: 0;
+    color: #f5f7fa;
+    font-size: 1rem;
+  }
+  .btnContainer {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .btn {
+    margin: 5px;
+  }
+
+  .form-container {
+    margin: 10px;
+  }
+  .form {
+    min-width: 80%;
+  }
+  .form input,
+  .form button {
+    
+    margin: 5px auto;
+  }
+}

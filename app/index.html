@@ -1,66 +1,76 @@
-<!doctype html>
-<html lang="">
-  <head>
-    <meta charset="utf-8">
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Micro-Fin</title>
+<!DOCTYPE html>
+<html>
 
-    <link rel="apple-touch-icon" href="apple-touch-icon.png">
-    <!-- Place favicon.ico in the root directory -->
-
-    <!-- build:css styles/vendor.css -->
-    <!-- bower:css -->
-    <!-- endbower -->
-    <!-- endbuild -->
-
-    <!-- build:css styles/main.css -->
-    <link rel="stylesheet" href="styles/main.css">
-    <!-- endbuild -->
-  </head>
-  <body>
-    <!--[if IE]>
-      <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Microfin</title>
     
-    <div class="hero-unit">
-        <h1><center>Micro-Fin</center></h1>
-        <h2><center>Enabling Rural Micro Finance</center></h2> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="./styles/styles.css">
+</head>
 
-        <span class='gre1'> <center>Connection Status :</center></span>
-       <span class='gre' id='constat'><center></center></span>
-    <div class="block1">
-          <h4><center>Add Init Members</center></h4>
-          <span><center>Aadhar ID : <input type='text' id='Uaadh' value=''></center></span>
-          <span><center><button id ='addInit' onclick='AddInit()'>Add Init Member</button></center></span>
-          
-    </div>
-    <div class="block2">
-          <h4><center>Member Validation</center></h4>
-          <span><center>Aadhar ID : <input type='text' id='Uaadh' value=''></center></span>
-          <span><center>User Address : <input type='text' id='Uaddr' value='0x00'></center></span>
-          <span><center><button id ='adval' onclick='aadhvalidation()'>Validate Member</button></center></span>
-    </div>  
-    <div class="block3">
-          <h4><center>Deposit to Pool</center></h4>
-          <span><center>Deposition Amount : <input type='text' id='poolDep' value=''></center></span>
-          <span><center><button id ='depol' onclick='PolDep()'>Deposit</button></center></span>
-    </div>
-    <div class="block2">
-          <h4><center>Request Loan</center></h4>
-          <span><center>Amount Requested : <input type='text' id='AmtReq' value=''></center></span>
-          <span><center><button id ='lonreq' onclick='LoanReq()'>Request Loan</button></center></span>
-    </div> 
-          
-    </div>
+<body>
+    <div class="parent-container">
 
-    
+        <div class="heading-container">
+            <h1 class="main-heading">MicroFin</h1>
+            <h3 class="main-subheading">Micro-Finance for Rural Areas</h3>
+            <hr>
+            <button id="btnConnected" class="btn-connected"><strong>Connected</strong></button>
+        </div>
+        <div class="btnContainer">
+            <button id="btnAddInitialMembers" class="btn">Add Initial Members</button>
+            <button id="btnMemberValidation" class="btn">Member Validation</button>
+            <button id="btnAddMoney" class="btn">Add Money</button>
+            <button id="btnRequestLoan" class="btn">Request Loan</button>
+        </div>
+
+
+
+        <div id="formContainer" class="form-container">
+
+            <form id="formAddInitialMembers" class="form">
+                <h2>Initial Members</h2>
+                <hr>
+
+                <label> Aadhar ID :</label> <br /> <input type="text" id="Uaadh" placeholder="Aadhar ID">
+
+                <button id="addInit" onclick='AddInit()'>Add</button>
+            </form>
+
+            <form id="formMemberValidation" class="form">
+                <h2>Member Validation</h2>
+                <hr>
+                <label> Aadhar ID: </label> <br /><input type="text" id="Uaadh" placeholder="Aadhar ID">
+                <label> User Address :</label> <br /><input type='text' id='Uaddr' value="0x00"
+                    placeholder="User Aadhar">
+                <button id="adval" onclick='aadhvalidation()'>Validate Member</button>
+            </form>
+
+            <form id="formAddMoney" class="form">
+                <h2>Deposit to Pool</h2>
+                <hr>
+                <label> Deposition Amount :</label> <input type="text" id="poolDep" placeholder="Pool Deposit">
+                <button id="depol" onclick='PolDep()'>Deposit</button>
+            </form>
+
+            <form id="formRequestLoan" class="form">
+                <h2>Request Loan</h2>
+                <hr>
+                <label> Amount Requested :</label> <input type="text" id="AmtReq" placeholder="Amount Requested">
+                <button id="lonreq" onclick='LoanReq()'>Request Loan</button>
+            </form>
+        </div>
+    </div>
     <!-- build:js scripts/vendor.js -->
     <!-- bower:js -->
     <script src="/bower_components/jquery/dist/jquery.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
-    
+
     <!-- build:js scripts/main.js -->
     <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js/dist/web3.min.js"></script>
     <script src="scripts/main.js"></script>
@@ -68,5 +78,47 @@
     <script src="scripts/app.js"></script>
     <script src="scripts/aadhar.js"></script>
     <!-- endbuild -->
-  </body>
+    <script>
+
+        // Get the buttons and form container
+        var btnAddInitialMembers = document.getElementById('btnAddInitialMembers');
+        var btnMemberValidation = document.getElementById('btnMemberValidation');
+        var btnAddMoney = document.getElementById('btnAddMoney');
+        var btnRequestLoan = document.getElementById('btnRequestLoan');
+
+        var formContainer = document.getElementById('formContainer');
+
+        // Add click event listeners to the buttons
+        btnAddInitialMembers.addEventListener('click', function () {
+            showForm('formAddInitialMembers');
+        });
+
+        btnMemberValidation.addEventListener('click', function () {
+            showForm('formMemberValidation');
+        });
+
+        btnAddMoney.addEventListener('click', function () {
+            showForm('formAddMoney');
+        });
+
+        btnRequestLoan.addEventListener('click', function () {
+            showForm('formRequestLoan');
+        });
+
+        // Function to show the selected form and hide other forms
+        function showForm(formId) {
+            // Hide all forms
+            var forms = formContainer.getElementsByClassName('form');
+            for (var i = 0; i < forms.length; i++) {
+                forms[i].classList.remove('show');
+            }
+
+            // Show the selected form
+            var formToShow = document.getElementById(formId);
+            formToShow.classList.add('show');
+        }
+
+    </script>
+</body>
+
 </html>
