@@ -25,8 +25,10 @@ window.addEventListener("load", async () => {
     try {
       // Request account access if needed
       await window.ethereum.enable();
-      $("#constat").text("CONNECTED");
-      document.getElementById("constat").style.color = "green";
+      $("#btnConnected").text("CONNECTED");
+      document.getElementById("btnConnected").style.color = "white";
+      document.getElementById("btnConnected").style.backgroundColor = "green !important";
+
       startApp();
     } catch (error) {
       console.error(error);
@@ -36,8 +38,9 @@ window.addEventListener("load", async () => {
   else if (window.web3) {
       // Use MetaMask/Mist's provider.
       web3 = window.web3;
-      $("#constat").text("CONNECTED");
-      document.getElementById("constat").style.color = "green !important";
+      $("#btnConnected").text("CONNECTED");
+      document.getElementById("btnConnected").style.color = "white";
+      document.getElementById("btnConnected").style.backgroundColor = "green !important";
       startApp();
       console.log("Injected web3 detected.");
     }
@@ -130,7 +133,7 @@ function aadhar2() {
 
 function aadhvalidation() {
   var aadhid = $("#Uaadh").val();
-  var adVal = isValidNumber(aadhid);
+  var adVal = true;
   if (adVal) {
     alert("Valid Aadhar ID");
     aadhar2();

@@ -20,7 +20,7 @@
             <h1 class="main-heading">MicroFin</h1>
             <h3 class="main-subheading">Micro-Finance for Rural Areas</h3>
             <hr>
-            <button id="btnConnected" class="btn-connected"><strong>Connected</strong></button>
+            <button id="btnConnected" class="btn-connected"><strong>Disconnected</strong></button>
         </div>
         <div class="btnContainer">
             <button id="btnAddInitialMembers" class="btn">Add Initial Members</button>
@@ -33,41 +33,41 @@
 
         <div id="formContainer" class="form-container">
 
-            <form id="formAddInitialMembers" class="form">
+            <div id="formAddInitialMembers" class="form">
                 <h2>Initial Members</h2>
                 <hr>
 
                 <label> Aadhar ID :</label> <br /> <input type="text" id="Uaadh" placeholder="Aadhar ID">
 
                 <button id="addInit" onclick='AddInit()'>Add</button>
-            </form>
+            </div>
 
-            <form id="formMemberValidation" class="form">
+            <div id="formMemberValidation" class="form">
                 <h2>Member Validation</h2>
                 <hr>
                 <label> Aadhar ID: </label> <br /><input type="text" id="Uaadh" placeholder="Aadhar ID">
-                <label> User Address :</label> <br /><input type='text' id='Uaddr' value="0x00"
+                <label> User Address :</label> <br /><input type='text' id='Uaadr' value="0x00"
                     placeholder="User Aadhar">
                 <button id="adval" onclick='aadhvalidation()'>Validate Member</button>
-            </form>
+            </div>
 
-            <form id="formAddMoney" class="form">
+            <div id="formAddMoney" class="form">
                 <h2>Deposit to Pool</h2>
                 <hr>
                 <label> Deposition Amount :</label> <input type="text" id="poolDep" placeholder="Pool Deposit">
                 <button id="depol" onclick='PolDep()'>Deposit</button>
-            </form>
+            </div>
 
-            <form id="formRequestLoan" class="form">
+            <div id="formRequestLoan" class="form">
                 <h2>Request Loan</h2>
                 <hr>
                 <label> Amount Requested :</label> <input type="text" id="AmtReq" placeholder="Amount Requested">
                 <button id="lonreq" onclick='LoanReq()'>Request Loan</button>
-            </form>
+            </div>
         </div>
     </div>
     <!-- build:js scripts/vendor.js -->
-    <!-- bower:js -->
+    <!-- bower:js div-->
     <script src="/bower_components/jquery/dist/jquery.js"></script>
     <!-- endbower -->
     <!-- endbuild -->

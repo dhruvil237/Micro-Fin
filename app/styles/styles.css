@@ -55,7 +55,7 @@ button {
 
 .btn-connected {
   margin: 15px auto 15px auto;
-  background-color: green;
+  background-color: rgb(236, 30, 30);
   color: white;
   width: 150px;
 }
@@ -134,6 +134,7 @@ input {
   border-radius: 5px;
   font-size: large;
   padding: 5px !important;
+  color: rgba(0, 0, 0) !important;
 }
 
 .form input {
