@@ -1,0 +1,129 @@
+:root {
+  --accent-col: #14203e;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  color: var(--accent-col);
+  font-family: "Poppins", sans-serif;
+}
+a {
+  text-decoration: none;
+}
+.navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: white;
+  height: 99px;
+}
+.navbar ul {
+  list-style-type: none;
+  margin-top: 15px;
+  height: 20px;
+}
+
+.navbar li {
+  float: left;
+  padding-right: 56px;
+
+  font-size: 18px;
+  font-weight: 600;
+  transition: 0.25s ease-in-out;
+  color: #14203e;
+}
+.navbar li a {
+  text-decoration: none;
+  color: #14203e;
+}
+.navbar li a:hover {
+  color: #fb886e;
+}
+
+.title {
+  font-size: 50px;
+  font-weight: 700;
+  text-align: center;
+  padding-top: 50px;
+  padding-bottom: 30px;
+}
+
+.parent-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 0 auto;
+  width: 95%;
+}
+.personal-stats-wrapper {
+  margin-left: 30px;
+}
+.pool-stats-wrapper,
+.personal-stats-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width: 45%;
+  background-color: #9184dd;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+.pool-stats-wrapper h3,
+.personal-stats-wrapper h3 {
+  letter-spacing: 2px;
+}
+
+.parent-wrapper h3 {
+  text-align: center;
+  font-weight: 700;
+}
+
+.stats-wrapper {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.stats-content {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  justify-content: space-evenly;
+}
+
+.stats-row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: #f78d6c;
+  margin: 10px;
+  height: 100px;
+  border-radius: 8px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  transition: 0.3s ease-in-out;
+}
+
+.stats-row:hover {
+  transform: scale(0.9, 0.9);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.final-heading {
+  font-weight: 700;
+}
+
+.final-content {
+  font-weight: 400;
+}
+
+.final-heading,
+.final-content {
+  color: white;
+  letter-spacing: 1px;
+}

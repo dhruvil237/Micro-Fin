@@ -17,13 +17,41 @@ button {
 body {
   font-size: 16px;
   line-height: 1.6;
-  background-color: #efedff;
+  background-color: #e2ddff;
 }
 
 .parent-container {
   margin: 2px;
   padding: 0 auto;
 }
+
+/* Navbat styling */
+.navbar {
+  margin: 0 auto 0 0;
+  background-color: #161d28;
+}
+.navbar ul {
+  list-style-type: none;
+}
+
+.navbar li {
+  float: left;
+  
+  padding-right: 56px;
+  font-size: 18px;
+  font-weight: 600;
+  transition: 0.25s ease-in-out;
+
+}
+
+.navbar li a {
+  color: white;
+}
+
+.navbar li a:hover{
+  color: #fb886e;
+}
+
 /* Add margin and padding to the main heading */
 .main-heading {
   width: 99%;
