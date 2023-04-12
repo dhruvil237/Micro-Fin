@@ -26,8 +26,8 @@ window.addEventListener("load", async () => {
       // Request account access if needed
       await window.ethereum.enable();
       $("#btnConnected").text("CONNECTED");
-      document.getElementById("btnConnected").style.color = "white";
-      document.getElementById("btnConnected").style.backgroundColor = "green !important";
+      $("#btnConnected").style.color = "white";
+      $("#btnConnected").style.backgroundColor = "green !important";
 
       startApp();
     } catch (error) {
@@ -39,8 +39,8 @@ window.addEventListener("load", async () => {
       // Use MetaMask/Mist's provider.
       web3 = window.web3;
       $("#btnConnected").text("CONNECTED");
-      document.getElementById("btnConnected").style.color = "white";
-      document.getElementById("btnConnected").style.backgroundColor = "green !important";
+      $("#btnConnected").style.color = "white";
+      $("#btnConnected").style.backgroundColor = "green !important";
       startApp();
       console.log("Injected web3 detected.");
     }
@@ -109,7 +109,7 @@ function AddInit() {
   var aadhid = $("#Uaadh").val();
   var adVal = isValidNumber(aadhid);
   if (adVal) {
-    alert("Valid Aadhar ID");
+    alert("Validated member");
     AddInit2();
   } else {
     alert("Invalid Aadhar ID");
